@@ -1,9 +1,5 @@
-package ru.akhitev;
+package ru.agataullina;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
     public static void main( String[] args )
