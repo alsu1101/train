@@ -1,4 +1,4 @@
-package ru.agataullina.domain.model;
+package ru.agataullina.trainer.domain.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +15,7 @@ public class OpenQuestionCardTest {
 
     @BeforeEach
     void setUp() {
-        openQuestionCard = new OpenQuestionCard(CARD_QUESTION, CARD_EXPECTED_ANSWER);
+        openQuestionCard = new OpenQuestionCard(1L, CARD_QUESTION, CARD_EXPECTED_ANSWER);
     }
 
     @Test
@@ -27,25 +27,25 @@ public class OpenQuestionCardTest {
     @Test
     @DisplayName("Попытка создать OpenQuestionCard с question равным null вызывает исключение")
     void given_nullQuestion_when_creatingOpenQuestionCard_then_exceptionIsThrown() {
-        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(null, CARD_EXPECTED_ANSWER));
+        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(1L, null, CARD_EXPECTED_ANSWER));
     }
 
     @Test
     @DisplayName("Попытка создать OpenQuestionCard с ожидаемым ответом равным null вызывает исключение")
     void given_nullExpectedAnswer_when_creatingOpenQuestionCard_then_exceptionIsThrown() {
-        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(CARD_QUESTION, null));
+        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(1L, CARD_QUESTION, null));
     }
 
     @Test
     @DisplayName("Попытка создать OpenQuestionCard с пустым вопросом вызывает исключение")
     void given_emptyQuestion_when_creatingOpenQuestionCard_then_exceptionIsThrown() {
-        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard("", CARD_EXPECTED_ANSWER));
+        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(1L, "", CARD_EXPECTED_ANSWER));
     }
 
     @Test
     @DisplayName("Попытка создать OpenQuestionCard с пустым ожидаемым ответом вызывает исключение")
     void given_emptyExpectedAnswer_when_creatingOpenQuestionCard_then_exceptionIsThrown() {
-        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(CARD_QUESTION, ""));
+        Assertions.assertThrowsExactly(IllegalArgumentException.class, () -> new OpenQuestionCard(1L, CARD_QUESTION, ""));
     }
 
     @Test
