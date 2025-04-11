@@ -1,6 +1,7 @@
 package ru.spbu.agataullina.api.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import java.util.Objects;
 
 @Schema(description = "Карточка с вопросом")
 public class OpenQuestionCardDto {
@@ -46,4 +47,17 @@ public class OpenQuestionCardDto {
     public String displayedName() {
         return String.format("%s. %s", id, question);
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OpenQuestionCardDto that = (OpenQuestionCardDto) o;
+        return Objects.equals(id, that.id) && Objects.equals(question, that.question) && Objects.equals(expectedAnswer, that.expectedAnswer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, question, expectedAnswer);
+    }
 }
+
