@@ -10,6 +10,7 @@ import ru.spbu.agataullina.spring.hibernate.config.DbConfig;
 @Import(DbConfig.class)
 @ComponentScan(basePackages = "ru.spbu.agataullina")
 @PropertySource("jdbc.properties")
+@PropertySource("classpath:jdbc.properties")
 public class SpringConfig {
 
 }
